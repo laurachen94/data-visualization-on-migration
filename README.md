@@ -1,7 +1,7 @@
 # data-visualization-on-migration
-this is a data visualization project on USA migration from 1990 to 2010
+This is a data visualization project on USA migration from 1990 to 2010
 It is an interactive visualization of migration data for each state that allows users to find the trend and detail information about the migration in USA. 
-We showed the migration trend from three aspects - 
+It showed the migration trend from three aspects - 
 the total population of each state in each year (line chart), 
 the migration among the selected state with other states (map), 
 and the inflow components (pie chart).

@@ -1,186 +1,26 @@
 <html>
 <head>
-<title></title>
+<title>USA Migration Trend</title>
 
-
+<link rel="stylesheet" type="text/css" href="main.css">
 <link href="https://fonts.googleapis.com/css?family=Alegreya|Alegreya+Sans" rel="stylesheet">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.3/css/bootstrap-slider.min.css">
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="http://d3js.org/topojson.v2.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
-<script src="https://d3js.org/d3-geo-projection.v1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.3/bootstrap-slider.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.24.0/d3-legend.min.js"></script>
 
 
 
-<style>
-
-body { font-family: 'Alegreya Sans', Calibri, sans-serif;background-color: #F1F1F2
-    }
-    #titlepic {
-         background-image: url("./titlepicture/blueback.png");
-        display: block;
-        margin: 0 auto;
-        width: 100%;
-        height: 400px;
-    }
-    #title {
-
-        display: block;
-        font: 10em 'Montserrat';
-        height:200;
-        margin: -90 auto;
-    }
-    #description {
-        display: block;
-        margin: -120 auto 0 auto;
-        background-color:#CCE2EA;
-
-        fill: #000000;
-        stroke: none;
-
-    }
-    #instruction1 {
-        display: block;
-        margin: 0 auto 50 auto;
-        width: 50%;
-        float: left;
-        background-color:#F1F1F2;
-    }
-    #instruction2 {
-        display: block;
-        margin: 0 auto 50 auto;
-        width: 50%;
-        float: right;
-        background-color:#F1F1F2;
-    }
-    #map {
-        display: block;
-        margin: -40 auto 50 auto;
-
-    }
-    #lineChart {
-        display: block;
-        margin: 20 auto;
-    }
-    .subtitle {
-        display: block;
-        margin: 0 auto;
-        text-align: center;
-        font-size: 20px;
-    }
-    #resultTitle {
-        display: block;
-        margin: 20 auto;
-        text-align: center;
-        font-size: 20px;
-    }
-    #groupMap {
-        display: block;
-        margin: auto;
-        font-size: 9px;
-    }
-    .piechart {
-        display: block;
-        margin: 0 auto;
-        text-align: center;
-        font-size: 20px;
-    }    
-
-    .left {
-        float:left;
-    }
-    .right {
-        float:right;
-    }
-
-    #result {
-        display:block;
-        margin: auto;
-    }
-    #stick {
-        width: 50%
-/*        height: 500px;*/
-        display:block;
-        margin: 0 auto;
-    }
-
-path.states{ cursor: pointer; }
-.states { fill: #ccc; stroke: #888; }
-
-.states.active { fill: orange; }
-
-#slide {
-    display: block;
-    margin: 40 auto;
-    text-align: center;
-    }
-    @import url(https://fonts.googleapis.com/css?family=Montserrat);
-
-
-
-
-
-
-
-.text-copy {
-    fill: none;
-    stroke: white;
-    stroke-dasharray: 6% 29%;
-    stroke-width: 4px;
-    stroke-dashoffset: 0%;
-    animation: stroke-offset 5.5s infinite linear;
-}
-
-.text-copy:nth-child(1){
-	stroke: #4D163D;
-	animation-delay: -1;
-}
-
-.text-copy:nth-child(2){
-	stroke: #840037;
-	animation-delay: -2s;
-}
-
-.text-copy:nth-child(3){
-	stroke: #BD0034;
-	animation-delay: -3s;
-}
-
-.text-copy:nth-child(4){
-	stroke: #BD0034;
-	animation-delay: -4s;
-}
-
-.text-copy:nth-child(5){
-	stroke: #FDB731;
-	animation-delay: -5s;
-}
-
-@keyframes stroke-offset{
-	100% {stroke-dashoffset: -35%;}
-}
-Raw
-
-</style>
 </head>
 <body>
-
-
-
-
-<svg id = "titlepic" viewBox="0 0 960 300">
+<div id = "titlepic">
+<svg viewBox="0 0 960 300">
 </svg>
- <svg id = "title" viewBox="0 0 960 300">
+</div>
+<div id = "title">
+ <svg width = "100%" height=300>
 	<symbol id="s-text">
-		<text text-anchor="middle" x="50%" y="90%">Migration in USA</text>
+		<text text-anchor="middle" x="50%" y="80%">Migration in USA</text>
 	</symbol>
 
 	<g class = "g-ants">
@@ -189,12 +29,15 @@ Raw
 		<use xlink:href="#s-text" class="text-copy"></use>
 		<use xlink:href="#s-text" class="text-copy"></use>
 		<use xlink:href="#s-text" class="text-copy"></use>
+        <use xlink:href="#s-text" class="text-copy"></use>
+		<use xlink:href="#s-text" class="text-copy"></use>
+		<use xlink:href="#s-text" class="text-copy"></use>
 	</g>
 </svg>
-
-<svg id = "description" viewBox="0 0 960 200">
-
-   <text text-anchor="middle" y="60%"
+</div>
+<div id = "description">
+<svg viewBox="0 0 960 200">
+   <text text-anchor="middle" y="30%"
      style="fill: #000000; stroke: none; font-size: 15px;">
         <tspan x="50%" dy="5%">Immigration is a hot topic these days in United States,yet migration of people within the country have also brought</tspan>
         <tspan x="50%" dy="10%">crucial impact to the United States’ economy, politics and culture. Americans have already seen this with the Western </tspan>
@@ -202,23 +45,27 @@ Raw
             from northeastern to southern cities such as Florida.</tspan>
     </text>
 </svg>
-<svg id = "instruction1" viewBox="0 0 960 300">
+</div>
+<div class="left" id = "instruction1">
+<svg viewBox="0 0 960 350">
    <text text-anchor="middle"
      style="fill: #000000; font-size: 40px;">
         <tspan x="25%" dy="30%">Instruction:</tspan>
     </text>
     <text  y="50%"
-     style="fill: #000000; stroke: none; font-size: 20px;">
+     style="fill: #000000; stroke: none; font-size: 1.8em;">
         <tspan x="10%" dy="-5%">Line chart shows total population of USA from year 1990 to 2010. Map shows the flows of migration trend in </tspan>
         <tspan x="10%" dy="15%">USA from year 1990 to 2010. Migration population from 0 to 13 million shows on map in color order from light </tspan>
         <tspan x="10%" dy="15%">yelow to dark red. A small preview map highlights the chosen state and its inflow and outflow state. Pie charts </tspan>
         <tspan x="10%" dy="15%"> shows percentage of source states of migration population in and destination  states out by regions.</tspan>
     </text>
-    <line x1="100%" y1="10%" x2="100%" y2="95%" style = "stroke: #D8D8D9;stroke-width:5" />
+    <line x1="100%" y1="30%" x2="100%" y2="95%" style = "stroke: #D8D8D9;stroke-width:5" />
 </svg>
-<svg id = "instruction2" viewBox="0 0 960 300">
+</div>
+<div class="right" id = "instruction2">
+<svg viewBox="0 0 960 350">
 <text  y="50%"
-     style="fill: #000000; stroke: none; font-size: 20px;">
+     style="fill: #000000; stroke: none; font-size: 1.85em;">
         <tspan x="3%" dy="-5%">Click state on map to show 1) it total population trend on line chart, 2)flow of migration population in and out of </tspan>
         <tspan x="3%" dy="15%">the state. Radius of each moving dot is positively related. Purple dot means population migrate out the state, and  </tspan>
         <tspan x="3%" dy="15%">green is migrate in. Hover onto pie chart will highlight the related state in preview map. Click state in main map will </tspan>
@@ -227,690 +74,33 @@ Raw
         <tspan x="3%" dy="15%"></tspan>
     </text>
 </svg>
-
-<svg id = "lineChart" height="220" width="880">
-      <text text-anchor="middle"
-     style="fill: #000000; font-size: 20px;">
-        <tspan x="50%" dy="7%">Total Population</tspan>
-    </text>
+</div>
+<div id="slide">
+    <p class="subtitle">Total Population</p>
+    <svg id = "lineChart">
     </svg>
-<div id = "slide">
-    <input id="yearslider" type="text" style="width:800px;"/>
+    <input id="yearslider" type="text" style="width:80%;"/>
 </div>
 
-<div id = "migTitle" class = "subtitle">
-        Migration Population
+<div id = "migMap">
+    <p class = "subtitle">Migration Population</p>
+    <svg id = "map">
+    </svg>
 </div>
-<svg id = "map" height="700" width="1000">
-</svg>
-<svg id = "groupMap" height="200" width="400"></svg>
+<svg id = "groupMap"></svg>
 <div id = "allResult" style="display:block; white-space: nowrap;">
-    <div id = "resultTitle">
-    click state in the map to show more information below 
-    </div>
-
+    <p class = "subtitle" id="tip">click state in the map to show more information below </p>
 </div>
 
-<script>
-
-var slider = new Slider("#yearslider", {
-        ticks: [1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010],
-        ticks_labels: ["1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004","2005", "2006", "2007", "2008", "2009", "2010"],
-        ticks_snap_bounds: 10
-    });
-var year = 1990;
-slider.on('change', function(event) {
-    console.log("change great!");
-    var a = event.newValue;
-    var b = event.oldValue;
-
-    var changed = !($.inArray(a[0], b) !== -1 &&
-                    $.inArray(a[1], b) !== -1 &&
-                    $.inArray(b[0], a) !== -1 &&
-                    $.inArray(b[1], a) !== -1 &&
-                    a.length === b.length);
-
-    if(changed) {
-        year = a;
-        show(year);
-        console.log(year)
-    }
-});
-
-var big = 0;
-
-
-
-var svg = d3.select("#map");
-
-var height = svg.attr("height")
-var width = svg.attr("width")
-
-
-var projection = d3.geoAlbersUsa().scale(40);
-var pathGenerator = d3.geoPath().projection(projection);
-
-var trans;
-var paths;
-
-
-var states;
-var Immi;
-var ImmiMap;
-var StateMap;
-var StateCode;
-var StateId;
-
-
-    var sequentialColors = ["#FFFFE5","#FFFFCC","#FFF7BC","#FFEDA0","#FEE391","#FED976","#FEC44F","#FEB24C","#FE9929","#FD8D3C","#FB6A4A","#FC4E2A","#EF3B2C","#CB181D","#BD0026","#A50F15","#800026","#67000D"]
-
-var colorinstate = ['#f7fbff','#deebf7','#c6dbef','#9ecae1','#6baed6','#4292c6','#2171b5']
-var coloroutstate = ['#fff5eb','#fee6ce','#fdd0a2','#fdae6b','#fd8d3c','#f16913','#d94801']
-
-var incolorscale = d3.scaleThreshold()
-.domain([0, 250, 500, 750, 1000]).range(colorinstate);
-var outcolorscale = d3.scaleThreshold()
-.domain([0, 250, 500, 750, 1000]).range(coloroutstate);
-var allstatecolorscale
-
-
-function show(year) {
-    d3.queue()
-    .defer(d3.json, "./data/us.json")
-    .defer(d3.csv, "./data/table" + year + ".csv")
-    .defer(d3.csv, "./data/statescolor.csv")
-    .await(function (error, rawMap, rawImmi, rawState) {
-
-
-        console.log("Code in the call-back function is only executed when every data file loads.");
-
-        states = topojson.feature(rawMap, rawMap.objects.states);
-//
-        StateCode = rawState;
-
-        StateId = d3.map(rawState, function(d) {return d.id});
-        Immi = rawImmi;
-        ImmiMap = d3.map(rawImmi, function(d) {return d.State});
-
-        var popMax = 0;
-        var popMin = parseInt(ImmiMap.get("1")["1"]);
-
-
-
-        rawState.forEach(function(d, i){
-            var thisPop = parseInt(ImmiMap.get(d.id)[d.id]);
-
-            if(thisPop > popMax){
-                popMax = thisPop;
-            }
-            if(thisPop < popMin){
-                popMin = thisPop;
-            }
-        })
-
-        if(popMax>big){
-            big = popMax;
-        }
-
-        allstatecolorscale = d3.scaleQuantize()
-            .domain([0, 12707337]).range(sequentialColors);
-
-        showMap();
-    });
-
-    function showMap() {
-        showPop("USA");
-        svg.selectAll("path.states").remove();
-        svg.selectAll("text").remove();
-        drawLegend();
-
-
-        projection.fitExtent([[0,0], [svg.attr("width"), svg.attr("height")]], states);
-        pathGenerator = d3.geoPath().projection(projection);
-
-        paths = svg.selectAll("path.states")
-                    .data(states.features);
-        paths.enter()
-            .append("path")
-            .attr("id", function(state) {return "state"+state.id})
-            .attr("class", "states")
-            .merge(paths)
-            .attr("d", function (states) {
-              return pathGenerator(states);
-            })
-            .style("fill", function(d){
-                if(ImmiMap.get(d.id) == null){
-                    return 0;
-                }
-                return allstatecolorscale(parseInt(ImmiMap.get(d.id)[d.id]))})
-            .on('click', hover)
-            .on('mouseout', mouseout);
-
-
-        StateCode.forEach(function (d, i){
-            var coord = projection([StateId.get(d.id).long, StateId.get(d.id).lati]);
-            if(coord != null){
-                svg.append("text")
-                .attr("x", coord[0])
-                .attr("y", coord[1])
-                .attr("dy", ".35em")
-                .text(StateId.get(d.id).Code);
-                svg.append("text")
-                .attr("x", coord[0]-10)
-                .attr("y", coord[1]+10)
-                .attr("dy", ".35em")
-                .text(ImmiMap.get(d.id)[d.id]);
-            }
-        });
-
-
-        trans = svg.append("g");
-
-
-}
-
-        function showGroupMap(selectstate){
-            console.log(selectstate);
-            var svggroup = d3.select("#groupMap");
-            
-            svggroup.selectAll("path").remove();
-            var projectiongroup = d3.geoAlbersUsa().scale(50);
-
-            var groupScale = d3.scaleOrdinal(['#fbb4ae','#b3cde3','#ccebc5','#decbe4']).domain(["1","2","3","4"]);
-
-            projectiongroup.fitExtent([[0,0], [svggroup.attr("width"), svggroup.attr("height")]], states);
-            var pathGeneratorgroup = d3.geoPath().projection(projectiongroup);
-
-            var paths = svggroup.selectAll("path.country").data(states.features);
-            paths.enter().append("path").attr("class", "states")
-            .merge(paths)
-            .attr("id", function(state){if(StateId.get(state.id)!=null){return StateId.get(state.id).Code;}})
-            .attr("d", function (states) {
-                return pathGeneratorgroup(states);
-            })
-            .style("fill", function(d){
-                if(StateId.get(d.id)!=null){
-                    return groupScale(StateId.get(d.id).group);
-                }
-                else{return 0;}
-            });
-            
-            d3.select("#"+StateId.get(selectstate).Code).style("stroke", "red").style("stroke-width", 3);
-            
-        
-        var legendG = svggroup.append("g");
-
-        var legendlength = 5;
-            
-        legendG.append("rect")
-            .attr("x", 0)
-            .attr("y", 5)
-            .attr("width", legendlength)
-            .attr("height", legendlength)
-            .attr("fill", "red");
-
-        legendG.append("rect")
-                .attr("x", 150)
-                .attr("y", 5)
-                .attr("width", legendlength)
-                .attr("height", legendlength)
-                .style("fill", "#227A3A");
-            
-        legendG.append("rect")
-                .attr("x", 270)
-                .attr("y", 5)
-                .attr("width", legendlength)
-                .attr("height", legendlength)
-                .style("fill", "#902F90");
-            
-            
-
-        legendG.append("text")
-                .attr("x", 0)
-                .attr("y", 15)
-                .style("font", "2px")
-                .text("Selected state in the trend map");
-
-
-        legendG.append("text")
-                .attr("x", 150)
-                .attr("y", 15)
-                .style("font", "2px")
-                .text("Hovered state in inflow pie chart");
-            
-        legendG.append("text")
-                .attr("x", 270)
-                .attr("y", 15)
-                .style("font", "2px")
-                .text("Hovered state in outflow pie chart");
-
-            
-        }
-
-
-
-
-        //if show map from hover on one states
-    function hover(state){
-        svg.selectAll("text").remove();
-        showGroupMap(state.id);
-        drawLegend();
-        showPop(state.id);
-        var position = projection([StateId.get(state.id).long, StateId.get(state.id).lati])
-        trans.append("text")
-            .attr("x", position[0])
-            .attr("y", position[1])
-            .attr("dy", ".35em")
-            .text(ImmiMap.get(state.id)[state.id]);
-        var hoverState = ImmiMap.get(state.id);
-        showPieChart(state.id, hoverState);
-        stateInfo = ImmiMap.get(state.id);
-        if (StateId.get(state.id) != null){
-            var coord1;
-            coord1 = projection([StateId.get(state.id).long, StateId.get(state.id).lati]);
-            if(state == "57"){
-                coord1 = [30, 30];
-            }
-            if(coord1 != null){
-                trans.append("text")
-                    .attr("x", coord1[0])
-                    .attr("y", coord1[1])
-                    .attr("dy", ".35em")
-                    .text(ImmiMap.get(state.id)[state.id]);
-                Object.keys(stateInfo).forEach(function (d){
-                    if (StateId.get(d) != null && d != stateInfo.State){
-                        var coord2;
-                        coord2 = projection([StateId.get(d).long, StateId.get(d).lati]);
-                        if(d == "57"){
-                            coord2 = [30,30];
-                        }
-
-                        if(coord2 != null){
-                            if(stateInfo[d] > 0){
-                                var x = coord2[0];
-                                var y = coord2[1];
-                                var circle = trans.append("circle")
-                                .attr("r", function (el){
-                                return Math.sqrt(Math.abs(stateInfo[d])*0.5)
-                                })
-                                .attr("cx", x)
-                                .attr("cy", y)
-                                .attr("fill", "#227A3A")
-                                .attr("opacity","0.45");
-
-
-                                circle.transition()
-                                    .duration(2000)
-                                    .attr("transform", "translate("+(coord1[0]-coord2[0])+","+ (coord1[1]-coord2[1])+ ")");
-                            }
-                            if(stateInfo[d] < 0){
-                                var x = coord1[0];
-                                var y = coord1[1];
-                                var circle = trans.append("circle")
-                                                    .attr("r", function (el){
-                                                    return Math.sqrt(Math.abs(stateInfo[d])*0.5)
-                                                    })
-                                                    .attr("cx", x)
-                                                    .attr("cy", y)
-                                                    .attr("fill", "#902F90")
-                                                    .attr("opacity","0.45");
-                                circle.transition()
-                                    .duration(2000)
-                                    .attr("transform", "translate("+(coord2[0]-coord1[0])+","+ (coord2[1]-coord1[1])+ ")");
-                            }
-
-                                trans.append("text")
-                                        .attr("x", coord2[0])
-                                        .attr("y", coord2[1])
-                                        .attr("dy", ".35em")
-                                        .text(-stateInfo[d]);
-                                trans.append("text")
-                                        .attr("x", coord2[0]-20)
-                                        .attr("y", coord2[1]-15)
-                                        .attr("dy", ".35em")
-                                        .text(StateId.get(d).Code);
-
-                        }
-                    }
-                })
-            }
-        }
-
-
-    }
-
-
-    function mouseout() {
-        svg.selectAll("circle").remove();
-        svg.selectAll("text").remove();
-
-        showPop("USA");
-        StateCode.forEach(function (d, i){
-            var coord = projection([StateId.get(d.id).long, StateId.get(d.id).lati]);
-            if(coord != null){
-                svg.append("text")
-                .attr("x", coord[0])
-                .attr("y", coord[1])
-                .attr("dy", ".35em")
-                .text(StateId.get(d.id).Code);
-                svg.append("text")
-                .attr("x", coord[0]-10)
-                .attr("y", coord[1]+10)
-                .attr("dy", ".35em")
-                .text(ImmiMap.get(d.id)[d.id]);
-            }
-        });
-        drawLegend();
-    }
-
-
-    function showPop(selectState){
-        d3.select("#lineChart").selectAll("g").remove();
-        var lineChart = d3.select("#lineChart"),
-            lineMargin = {top: 10, right: 20, bottom: 20, left: 0},
-            lineWidth = lineChart.attr("width") - lineMargin.left - lineMargin.right-20,
-            lineHeight = lineChart.attr("height") - lineMargin.top - lineMargin.bottom,
-            g = lineChart.append("g").attr("transform", "translate(" + 40 + "," + lineMargin.top + ")");
-
-        lineChart.append("g").append("text")
-            .attr("transform", "translate(" + lineWidth/2 + "," + 30 + ")")
-            .text(function(d){
-                if(StateId.get(selectState) != null){
-                    return StateId.get(selectState).name;
-                }
-            });
-        
-        
-        var x = d3.scaleLinear()
-            .rangeRound([0, lineWidth-40]);
-
-        var y = d3.scaleLinear()
-            .rangeRound([lineHeight, 0]);
-
-        var line = d3.line()
-            .x(function(d) { return x(d.year); })
-            .y(function(d) { return y(d.pop); });
-
-
-        d3.csv("./data/statesPopEachYear.csv", function(error, data) {
-            if (error) throw error;
-
-//            console.log(data);
-
-            var populationEachYear = d3.map(data, function(d){return d.State;})
-
-            var dataforChart = populationEachYear.get(selectState);
-
-            var chartArray = [];
-
-            for(var prop in dataforChart) {
-                if(dataforChart.hasOwnProperty(prop) && prop != "State") {
-                    var population = new Object();
-                    population.year = parseInt(prop);
-                    population.pop = parseInt(dataforChart[prop])/1000000;
-                    chartArray.push(population);
-                }
-            }
-//            console.log(chartArray);
-            x.domain(d3.extent(chartArray, function(d) { return d.year; }));
-            y.domain(d3.extent(chartArray, function(d) { return d.pop; }));
-
-
-            var xAxis = d3.axisBottom().scale(x);
-            g.append("g")
-              .attr("class", "axis")
-              .attr("transform", "translate(0, " + (lineHeight) + ")")
-              .call(xAxis);
-
-            var yAxis = d3.axisRight().scale(y);
-            g.append("g")
-                .attr("class", "axis")
-                .attr("transform", "translate(" + (lineWidth - 40) + ", 0)")
-                .call(yAxis)
-                .append("text")
-                .attr("fill", "#000")
-                //.attr("transform", "rotate(-90)")
-                .attr("y", 6)
-                .attr("dy", "0.71em")
-                .attr("text-anchor", "end")
-                .text("Million");
-
-            g.append("path")
-              .datum(chartArray)
-              .attr("fill", "none")
-              .attr("stroke", "steelblue")
-              .attr("stroke-linejoin", "round")
-              .attr("stroke-linecap", "round")
-              .attr("stroke-width", 1.5)
-              .attr("d", line);
-        });
-    }
-
-    function showPieChart(selectState, stateInfo){
-        d3.select("#allResult").selectAll("svg").remove();
-        d3.select("#allResult").selectAll("div").remove();
-        
-        var resultWidth = 1000;
-        var resultHeight = 500;
-        
-        d3.select("#allResult").append("svg").attr("id", "result").attr("width", resultWidth).attr("height", resultHeight);
-        
-
-        
-        var tooltip = d3.select("body")
-                        .append("div")
-                        .style("font", "bold 14px Arial")
-                        .style("position", "absolute")
-                        .style("z-index", "10")
-                        .style("visibility", "hidden");
-
-//        d3.select("#resultp").append("svg").attr("height", 400).attr("width", width).attr("id", "result");
-
-//        var hoverState = ImmiMap.get(state.id);
-        var gIn = d3.select("#result").append("g")
-            .attr("class", "piechart left")
-            .attr("transform", "translate(" + (resultWidth/4) + "," + resultHeight/ 2 + ")");
-        
-        d3.select("#result").append("g")
-            .append("text")
-            .attr("x", 240)
-            .attr("y", 70)
-            .style("font", "40px")
-            .attr("font-weight", "bold")
-            .style("font-size","20px")
-            .text("Inflow");
-        
-        var gOut = d3.select("#result").append("g")
-            .attr("class", "piechart right")
-            .attr("transform", "translate(" + (resultWidth*3/4) + "," + resultHeight/2+ ")");
-        
-        
-                
-        d3.select("#result").append("g")
-            .append("text")
-            .attr("x", 440)
-            .attr("y", 90)
-            .attr("font-weight", "bold")
-            .text(" State You Selected Above:")
-            .style("font-size","20px"); 
-        
-        d3.select("#result").append("g")
-            .append("text")
-            .attr("x", 445)
-            .attr("y", 120)
-            .attr("font-weight", "bold")
-            .text(StateId.get(selectState).name)
-            .style("font-size","20px");  
-        
-        d3.select("#result").append("g")
-            .append("text")
-            .attr("x", 730)
-            .attr("y", 70)
-            .attr("font-weight", "bold")
-            .style("font-size","20px")
-            .text("Outflow");
-        
-        var piewidth = 300, pieheight = 300, radius = 150;
-
-        var color = d3.scaleOrdinal(['#fbb4ae','#b3cde3','#ccebc5','#decbe4']).domain(["1","2","3","4"]);
-
-        var statesInflow = [];
-        var statesOutflow = [];
-        
-        var stateAllIn = 0;
-        var stateAllOut = 0;
-
-        for(var prop in stateInfo) {
-           if(stateInfo.hasOwnProperty(prop) && prop != "State" && prop != selectState
-              && projection([StateId.get(selectState).long, StateId.get(selectState).lati]) != null) {
-               if(stateInfo[prop] > 0 && StateId.get(prop).group != null){
-                   var stateInflow = new Object();
-                   stateInflow.state = parseInt(prop);
-                   stateInflow.flowPop = parseInt(stateInfo[prop]);
-                   statesInflow.push(stateInflow);
-                   stateAllIn += stateInflow.flowPop;
-               }
-               if(stateInfo[prop] < 0 && StateId.get(prop).group != null){
-                   var stateOutflow = new Object();
-                   stateOutflow.state = parseInt(prop);
-                   stateOutflow.flowPop = -parseInt(stateInfo[prop]);
-                   statesOutflow.push(stateOutflow);
-                   stateAllOut += stateOutflow.flowPop;
-               }
-           }
-       }
-
-        statesInflow.sort(function(a, b){return b.flowPop-a.flowPop});
-        statesOutflow.sort(function(a, b){return b.flowPop-a.flowPop});
-
-       var pie = d3.pie()
-           .sort(function(a, b) { return StateId.get(a.state).group.localeCompare(StateId.get(b.state).group); })
-           .value(function(d) { return d.flowPop; });
-
-       var path = d3.arc()
-           .outerRadius(radius - 10)
-           .innerRadius(0);
-
-       var label = d3.arc()
-           .outerRadius(radius + 30)
-           .innerRadius(radius + 30);
-
-
-       statesInflow.forEach(function(d){
-           d.flowPop = +d.flowPop;
-       })
-       statesOutflow.forEach(function(d){
-           d.flowPop = +d.flowPop;
-       })
-
-       var arcIn = gIn.selectAll(".arc")
-       .data(pie(statesInflow))
-       .enter().append("g")
-       .attr("class", "arc");
-
-       var arcOut = gOut.selectAll(".arc")
-       .data(pie(statesOutflow))
-       .enter().append("g")
-         .attr("class", "arc");
-
-
-       arcIn.append("path")
-         .attr("d", path)
-         .attr("fill", function(d) { return color(StateId.get(d.data.state).group); })
-         .attr("stroke", "white")
-         .attr("stroke-width", 1)
-         .on("mouseover", function(d){
-               d3.select("#"+StateId.get(d.data.state).Code).style("stroke", "#227A3A").style("stroke-width", 3);
-               d3.select(this).attr("stroke", "#707070").attr("stroke-width", 3);
-               return tooltip.style("visibility", "visible");
-          })
-         .on("mousemove", function(d){
-            d3.select("#"+StateId.get(d.data.state).Code).style("stroke", "#227A3A").style("stroke-width", 3);
-            d3.select(this).attr("stroke", "#707070").attr("stroke-width", 3);
-            if(StateId.get(d.data.state)!=null){
-//                console.log(d.data.flowPop/stateAllIn);
-                return tooltip.style("top", (event.pageY-10)+"px")
-                    .style("left",(event.pageX+10)+"px")
-                    .text("In " + year +", " + (parseFloat(d.data.flowPop/stateAllIn) * 100).toFixed(2) + "% immigration from " + StateId.get(d.data.state).name);
-            }
-       })
-         .on("mouseout", function(d){
-           d3.select("#"+StateId.get(d.data.state).Code).style("stroke", "#888").style("stroke-width", 1);
-           d3.select(this).attr("stroke", "white").attr("stroke-width", 1);
-           return tooltip.style("visibility", "hidden");
-          });
-
-       arcOut.append("path")
-         .attr("d", path)
-         .attr("fill", function(d) { return color(StateId.get(d.data.state).group); })
-         .attr("stroke", "white")
-         .attr("stroke-width", 1)
-         .on("mouseover", function(d){
-                d3.select("#"+StateId.get(d.data.state).Code).style("stroke", "#902F90").style("stroke-width", 3);
-                d3.select(this).attr("stroke", "#707070").attr("stroke-width", 3);
-                return tooltip.style("visibility", "visible");
-        })
-         .on("mousemove", function(d){
-            d3.select("#"+StateId.get(d.data.state).Code).style("stroke", "#902F90").style("stroke-width", 3);
-            d3.select(this).attr("stroke", "#707070").attr("stroke-width", 3);
-            if(StateId.get(d.data.state)!=null){
-//                console.log(d.data.flowPop/stateAllOut);
-                return tooltip.style("top", (event.pageY-10)+"px")
-                    .style("left",(event.pageX+10)+"px")
-                    .text("In " + year +", " + (parseFloat(d.data.flowPop/stateAllOut) * 100).toFixed(2) + "% emigration from " + StateId.get(d.data.state).name);
-            }
-       })
-         .on("mouseout", function(d){
-               d3.select("#"+StateId.get(d.data.state).Code).style("stroke", "#888").style("stroke-width", 1);
-               d3.select(this).attr("stroke", "white").attr("stroke-width", 1);
-               return tooltip.style("visibility", "hidden");
-        });
-
-    }
-
-
-
-    function drawLegend(){
-
-        var legendMap = svg.append("g");
-        legendMap.append("g")
-        .attr("class", "legendLinear")
-        .attr("transform", "translate(30, " + (height - 20) + ")");
-
-        var legendLinear = d3.legendColor()
-        .shapeWidth(50)
-        .cells(10)
-        .orient('horizontal')
-        .scale(allstatecolorscale);
-
-        svg.select(".legendLinear")
-        .call(legendLinear);
-
-        legendMap.append("text")
-        .text("<0.72 million")
-        .attr("x", 30)
-        .attr("y", (height - 23))
-        .attr("font-weight", "bold");
-
-        legendMap.append("text")
-        .text("13 million")
-        .attr("x", 925)
-        .attr("y", (height - 23))
-        .attr("font-weight", "bold");
-
-        legendMap.append("text")
-        .text("Color Legend - Population at beginning of "+ year)
-        .attr("x", 1/2*width-100)
-        .attr("y", (height -30))
-        .attr("font-weight", "bold");
-    }
-
-}
-
-    show(year);
-
-
-
-</script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="http://d3js.org/topojson.v2.min.js"></script>
+<!--<script src="http//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>-->
+<script src="https://d3js.org/d3-geo-projection.v1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.3/bootstrap-slider.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.24.0/d3-legend.min.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
